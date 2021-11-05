@@ -22,7 +22,7 @@ const SignUp: NextPage = () => {
 
 
     async function signInWithGoogle() {
-        const { error } = await supabase.auth.signIn({ provider: "google"}, { redirectTo: "http://localhost:3000/kyc"});
+        const { error } = await supabase.auth.signIn({ provider: "google"});
     }
 
 
