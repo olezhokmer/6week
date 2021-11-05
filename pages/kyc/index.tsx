@@ -29,7 +29,7 @@ const Kyc: NextPage = () => {
             if(input) input.value = kyc[id];
         });
 
-        if(kyc.doc_url){
+        if(kyc?.doc_url){
             const { publicURL } = supabase.storage.from('kyc').getPublicUrl("images/"+kyc.doc_url);
             let image : any = document.getElementById("output");
             if(image) image.src = publicURL;
