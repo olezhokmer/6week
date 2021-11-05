@@ -40,6 +40,8 @@ const Kyc: NextPage = () => {
     async function save(e: any){
         
         e.preventDefault();
+        console.log(user)
+        console.log(kyc)
         const id = user.id;
         const phone = e.target[0].value;
         const first_name = e.target[1].value;
@@ -48,7 +50,7 @@ const Kyc: NextPage = () => {
         const city = e.target[4].value;
 
         const ex = imageElement?.name?.split('.')?.pop();
-        const name = `${user.id}.${ex}`;
+        const name = `${id}.${ex}`;
 
         const obj = {phone, first_name, last_name, country, city};
         await supabase.from("kyc").upsert([ { id, ...obj, doc_url: imageElement ? name : null } ]);
