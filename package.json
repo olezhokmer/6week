@@ -1,0 +1,29 @@
+{
+  "name": "my-app",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@supabase/supabase-js": "^1.25.2",
+    "@supabase/ui": "^0.35.0",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security",
+    "idempotent-babel-polyfill": "^7.4.4",
+    "next": "12.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.6",
+    "@types/react": "17.0.34",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.2",
+    "typescript": "4.4.4"
+  }
+}
