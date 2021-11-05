@@ -38,6 +38,7 @@ const Kyc: NextPage = () => {
     }
 
     async function save(e: any){
+        
         e.preventDefault();
         const id = user.id;
         const phone = e.target[0].value;
@@ -45,17 +46,16 @@ const Kyc: NextPage = () => {
         const last_name = e.target[2].value;
         const country = e.target[3].value;
         const city = e.target[4].value;
-        
-        const obj = {phone, first_name, last_name, country, city};
-        await supabase.from("kyc").upsert([ { id, ...obj } ]);
 
-        if(imageElement){
-            const ex = imageElement.name.split('.').pop();
-            const name = `${user.id}.${ex}`;
-            await supabase.storage.from("kyc").remove(["images/"+kyc.doc_url]);
-            await supabase.storage.from('kyc').upload("images/"+name, imageElement, { upsert: true });
-            await supabase.from("kyc").update({ doc_url: name }).match({ id: user.id });
-        }
+        const ex = imageElement?.name?.split('.')?.pop();
+        const name = `${user.id}.${ex}`;
+
+        const obj = {phone, first_name, last_name, country, city};
+        await supabase.from("kyc").upsert([ { id, ...obj, doc_url: imageElement ? name : null } ]);
+
+        await supabase.storage.from("kyc").remove(["images/"+kyc.doc_url]);
+        await supabase.storage.from('kyc').upload("images/"+name, imageElement, { upsert: true });
+
         alert("Success!");
     }
 
