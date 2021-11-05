@@ -53,7 +53,7 @@ const Kyc: NextPage = () => {
         const obj = {phone, first_name, last_name, country, city};
         await supabase.from("kyc").upsert([ { id, ...obj, doc_url: imageElement ? name : null } ]);
 
-        await supabase.storage.from("kyc").remove(["images/"+kyc.doc_url]);
+        if(kyc?.doc_url) await supabase.storage.from("kyc").remove(["images/"+kyc.doc_url]);
         await supabase.storage.from('kyc').upload("images/"+name, imageElement, { upsert: true });
 
         alert("Success!");
