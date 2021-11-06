@@ -17,5 +17,7 @@ steps:
     rergistry_username: olezhokmer
     registry_password: 3a3e3856-8f06-48d4-95bc-01e3a14cc344
 trigger:
-  branch: - master
-  event: - push
+  branch: 
+  - master
+  event: 
+  - push
