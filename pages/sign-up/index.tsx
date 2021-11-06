@@ -1,8 +1,6 @@
 import type { NextPage } from 'next'
 import supabase from '../../supabase'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 const SignUp: NextPage = () => {
 
@@ -32,7 +30,6 @@ const SignUp: NextPage = () => {
                 <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className="flex items-center justify-center">
                         <button onClick={signInWithGoogle} className="flex items-center justify-center shadow-lg font-bold py-2 px-4 rounded" type="submit">
-                            <FontAwesomeIcon className="h-10 w-10" icon={faGoogle}/>
                             Sign In with Google
                         </button>
                     </div>
