@@ -1,0 +1,21 @@
+kind: pipeline
+name: default
+
+steps:
+- name: 6week
+  image: node
+  commands:
+  - npm install
+  - npm run build
+
+- name: 6week
+  image: plugins/docker
+  settings:
+    username: olezhokmer
+    password: gfg6gdf7gdfgf
+    repo: olezhokmer/6week
+    rergistry_username: olezhokmer
+    registry_password: 3a3e3856-8f06-48d4-95bc-01e3a14cc344
+trigger:
+  branch: - master
+  event: - push
