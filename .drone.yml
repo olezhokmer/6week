@@ -6,7 +6,7 @@ steps:
   image: node
   commands:
   - npm install
-  - npm run build
+  - npm --openssl-legacy-provider run build
 
 - name: 6week-docker
   image: plugins/docker
